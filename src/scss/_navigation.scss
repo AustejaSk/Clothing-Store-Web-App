@@ -1,0 +1,39 @@
+.navigationBar {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 48px);
+    background-color: $light-black;
+    border-radius: 44px;
+    padding: 10px 16px;
+
+    &__link:nth-of-type(2) {
+        position: relative;
+    }
+
+    &__img {
+        width: 40px;
+        height: auto;
+    }
+
+    &__itemsBubble {
+        position: absolute;
+        top: 12px;
+        right: 10px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #F13658;
+    }
+
+    @include respond-to(tablet) {
+        width: 60%;
+    }
+
+    @include respond-to(desktop) {
+        width: 30%;
+    }
+}

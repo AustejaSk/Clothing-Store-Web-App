@@ -1,0 +1,202 @@
+@import 'variables';
+@import 'globals';
+@import 'mixins';
+@import 'navigation';
+@import 'products';
+@import 'product';
+@import 'cart';
+
+.welcome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__textContainer {
+        &__greeting {
+            margin: 0;
+            font-size: to-rem(12);
+            font-weight: 400;
+            color: $dark-grey;
+        }
+
+        &__customerName {
+            margin: 4px 0 0;
+            font-size: to-rem(16);
+            font-weight: 700;
+            color: $dark-black;
+        }
+    }
+
+    &__customerImg {
+        width: 32px;
+        height: 32px;
+    }
+
+    @include respond-to(desktop) {
+
+        &__textContainer {
+            &__greeting {
+                font-size: to-rem(16);
+            }
+
+            &__customerName {
+                margin: 8px 0 0;
+                font-size: to-rem(20);
+            }
+        }
+
+        &__customerImg {
+            width: 48px;
+            height: 48px;
+        }
+    }
+}
+
+.search {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+
+    &__input {
+        display: flex;
+        gap: 16px;
+        
+        &__bar {
+            flex: 1;
+            border: 1px solid $light-grey;
+            border-radius: 8px;
+            padding: 14px 16px 14px 44px;
+            font-family: inherit;
+            font-size: to-rem(14);
+            font-weight: 400;
+            color: $dark-black;
+            background: url(../images/search-icon.png) no-repeat;
+            background-size: 20px 20px;
+            background-position: 16px center;
+            min-width: 20%;
+        
+            &::placeholder {
+                color: $light-grey;
+            }
+        
+            &:focus {
+                outline-color: $dark-grey;
+            }
+        }
+    
+        &__filterBtn {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 8px;
+            background-color: $dark-black;
+    
+            &__img {
+                width: 20px;
+                height: 20px;
+            }
+    
+            &:focus, &:hover {
+                outline: $light-black;
+                background-color: lighten($dark-black, 20%);
+            }
+        }
+    }
+
+    &__info {
+        font-size: to-rem(14);
+        color: $light-black;
+    }
+
+    @include respond-to(desktop) {
+        margin-top: 32px;
+    }
+}
+
+.infoContainer {
+    display: flex;
+    background-color: rgb(215, 255, 242);
+    margin-top: 16px;
+    border-radius: 8px;
+    padding: 16px 16px;
+    gap: 8px;
+
+    &__infoText {
+        margin: 0;
+        font-size: to-rem(14);
+    }
+
+    &__searchTerm {
+        margin: 0;
+        font-size: to-rem(15);
+        font-weight: 500;
+    }
+
+    @include respond-to(desktop) {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 16px;
+        padding: 16px 0;
+    
+        &__searchTerm {
+            font-size: to-rem(18);
+        }
+    }
+}
+
+
+.filter {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+    overflow-x: scroll;
+    white-space: nowrap;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    &__option {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 8px 12px;
+        background: none;
+        border: 1px solid $light-grey;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: to-rem(12);
+        font-weight: 500;
+        color: $light-black;
+
+        &__icon {
+            width: 16px;
+            height: auto;
+        }
+
+        &.dark {
+            background-color: $light-black;
+            color: #FDFDFD;
+            border: none;
+        }
+
+        &.dark:focus, &.dark:hover {
+            background-color: lighten($dark-black, 20%);
+        }
+
+        &.active {
+            background: #e8e8e8;
+            font-weight: 700;
+            border-color: #292526;
+        }
+
+        &:focus, &:hover {
+            border-color: $dark-grey;
+            outline-color: $dark-grey;
+        }
+    }
+}
