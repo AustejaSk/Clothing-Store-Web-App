@@ -467,6 +467,8 @@ a:focus {
   color: #121111;
 }
 .cart__payment__card__btn {
+  display: flex;
+  align-items: center;
   background: none;
   border: none;
   font-size: 1.25rem;
@@ -513,13 +515,14 @@ a:focus {
   top: 25px;
   right: 0;
   z-index: 1;
-  padding: 10px 20px;
+  padding: 12px 24px;
   background: #292526;
   font-family: inherit;
+  font-size: 1rem;
   font-weight: 500;
   color: #ffffff;
   border: none;
-  border-radius: 18px;
+  border-radius: 40px;
   white-space: nowrap;
 }
 

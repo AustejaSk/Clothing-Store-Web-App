@@ -153,6 +153,8 @@
         }
 
         &__btn {
+            display: flex;
+            align-items: center;
             background: none;
             border: none;
             font-size: to-rem(20);
@@ -196,13 +198,14 @@
     top: 25px;
     right: 0;
     z-index: 1;
-    padding: 10px 20px;
+    padding: 12px 24px;
     background: $light-black;
     font-family: inherit;
+    font-size: to-rem(16);
     font-weight: 500;
     color: #ffffff;
     border: none;
-    border-radius: 18px;
+    border-radius: 40px;
     white-space: nowrap;
 }
 

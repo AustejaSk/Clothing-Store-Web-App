@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import filterIcon from '../../images/filter-icon.png'
 
 const SearchBar = ({ inputValue, setInputValue, setSearchTerm }) => {
