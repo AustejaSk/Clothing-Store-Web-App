@@ -12,7 +12,7 @@ const Product = ({ products, getSelectedProducts }) => {
     const [isFavourite, setIsFavourite] = useState(false)
     const [selectedSize, setSelectedSize] = useState(null)
     const [selectedColor, setSelectedColor] = useState(null)
-    const [itemCount, setItemCount] = useState(0)
+    const [itemCount, setItemCount] = useState(1)
 
     const location = useLocation()
 
@@ -79,9 +79,11 @@ const Product = ({ products, getSelectedProducts }) => {
                 <div className='product__description'>
                     <p className='product__description__text'>
                         {description}
-                        <span onClick={handleDescription}>
-                            {isOpen ? ' Read Less...' : ' Read More...'}
-                        </span>
+                        {description.length >= 140 &&
+                            <span onClick={handleDescription}>
+                                {isOpen ? ' Read Less...' : ' Read More...'}
+                            </span>
+                        }
                     </p>
                 </div>
 

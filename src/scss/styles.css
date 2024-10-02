@@ -187,6 +187,7 @@ a:focus {
 }
 .product__fovouriteBtn {
   right: 16px;
+  color: #000000;
 }
 .product__details {
   margin-top: 24px;
@@ -286,6 +287,8 @@ a:focus {
   height: 36px;
   display: grid;
   place-items: center;
+  color: #000000;
+  padding: 0;
 }
 .product__size__option:hover {
   border-color: #787676;

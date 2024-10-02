@@ -26,6 +26,7 @@
 
     &__fovouriteBtn {
         right: 16px;
+        color: #000000;
     }
 
 
@@ -148,6 +149,8 @@
             height: 36px;
             display: grid;
             place-items: center;
+            color: #000000;
+            padding: 0;
 
             &:hover {
                 border-color: $dark-grey;
