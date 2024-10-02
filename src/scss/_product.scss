@@ -21,12 +21,14 @@
 
     &__backBtn {
         left: 16px;
+        color: $dark-black;
         padding-right: 1px;
     }
 
     &__fovouriteBtn {
         right: 16px;
-        color: #000000;
+        color: $dark-black;
+        padding: 0;
     }
 
 
@@ -95,6 +97,8 @@
             height: 32px;
             display: grid;
             place-items: center;
+            color: $dark-black;
+            padding: 0;
 
             &:hover {
                 border-color: $dark-grey;
@@ -149,7 +153,7 @@
             height: 36px;
             display: grid;
             place-items: center;
-            color: #000000;
+            color: $dark-black;
             padding: 0;
 
             &:hover {

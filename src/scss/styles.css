@@ -183,11 +183,13 @@ a:focus {
 }
 .product__backBtn {
   left: 16px;
+  color: #121111;
   padding-right: 1px;
 }
 .product__fovouriteBtn {
   right: 16px;
-  color: #000000;
+  color: #121111;
+  padding: 0;
 }
 .product__details {
   margin-top: 24px;
@@ -246,6 +248,8 @@ a:focus {
   height: 32px;
   display: grid;
   place-items: center;
+  color: #121111;
+  padding: 0;
 }
 .product__quantity__btn:hover {
   border-color: #787676;
@@ -287,7 +291,7 @@ a:focus {
   height: 36px;
   display: grid;
   place-items: center;
-  color: #000000;
+  color: #121111;
   padding: 0;
 }
 .product__size__option:hover {
@@ -430,6 +434,8 @@ a:focus {
   background: none;
   border: none;
   font-size: 1.5625rem;
+  color: #121111;
+  padding: 0;
 }
 
 .cart__payment {
@@ -464,6 +470,8 @@ a:focus {
   background: none;
   border: none;
   font-size: 1.25rem;
+  color: #121111;
+  padding: 0;
 }
 .cart__payment__priceDetails {
   margin-top: 24px;
