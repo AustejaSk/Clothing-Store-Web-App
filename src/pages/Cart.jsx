@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { FaAngleLeft, FaEllipsis, FaAngleDown } from "react-icons/fa6"
 
 import Quantity from '../components/Quantity'
@@ -8,6 +8,9 @@ import visaImg from '../images/visa.png'
 const Cart = ({ selectedProducts, setSelectedProducts, updateItemCount }) => {
 
     const [openMenu, setOpenMenu] = useState(null)
+
+    const navigate = useNavigate()
+    const location = useLocation()
 
     const shippingFee = 6
 
@@ -30,10 +33,18 @@ const Cart = ({ selectedProducts, setSelectedProducts, updateItemCount }) => {
         setSelectedProducts(prevProducts => prevProducts.filter(product => product.id !== productId))
     }
 
+    const handleBackClick = () => {
+        if (location.state && location.state.from) {
+            navigate(-1)
+        } else {
+            navigate('/')
+        }
+    }
+
     return (
         <div className='cart'>
             <div className='cart__header'>
-                <Link to={'..'} className='cart__header__backBtn'><FaAngleLeft /></Link>
+                <button className='cart__header__backBtn' onClick={handleBackClick}><FaAngleLeft /></button>
                 <h1 className='cart__header__title'>Checkout</h1>
             </div>
             {selectedProducts.filter(product => product.itemCount > 0).length ? (

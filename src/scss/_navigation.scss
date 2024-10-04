@@ -9,6 +9,7 @@
     background-color: $light-black;
     border-radius: 44px;
     padding: 10px 16px;
+    z-index: 1000;
 
     &__link:nth-of-type(2) {
         position: relative;

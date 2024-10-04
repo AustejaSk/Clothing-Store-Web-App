@@ -33,6 +33,7 @@ a:focus {
   background-color: #292526;
   border-radius: 44px;
   padding: 10px 16px;
+  z-index: 1000;
 }
 .navigationBar__link:nth-of-type(2) {
   position: relative;
@@ -184,7 +185,7 @@ a:focus {
 .product__backBtn {
   left: 16px;
   color: #121111;
-  padding-right: 1px;
+  padding: 0;
 }
 .product__fovouriteBtn {
   right: 16px;
@@ -726,4 +727,33 @@ a:focus {
 .filter__option:focus, .filter__option:hover {
   border-color: #787676;
   outline-color: #787676;
+}
+
+.popup {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 80%;
+  padding: 4px 0;
+  background-color: rgb(215, 255, 242);
+  text-align: center;
+  border-radius: 8px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+.popup__message {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.popup.fade-in {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup-fade-out {
+  opacity: 0;
 }/*# sourceMappingURL=styles.css.map */

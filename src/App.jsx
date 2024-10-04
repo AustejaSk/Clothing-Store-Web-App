@@ -68,7 +68,7 @@ const App = () => {
             <Navigation selectedProducts={selectedProducts} />
             <Routes>
                 <Route path='/' element={<Home products={products} categories={categories} loading={loading} />}/>
-                <Route path='product' element={<Product products={products} getSelectedProducts={getSelectedProducts} />} />
+                <Route path='/:id' element={<Product products={products} getSelectedProducts={getSelectedProducts} />} />
                 <Route path='cart' element={<Cart selectedProducts={selectedProducts} updateItemCount={updateItemCount} setSelectedProducts={setSelectedProducts} />} />
                 <Route path='favourite' element={<Favourite />} />
                 <Route path='account' element={<Account />} />

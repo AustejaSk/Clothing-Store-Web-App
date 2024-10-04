@@ -12,7 +12,7 @@ const Navigation = ({ selectedProducts }) => {
             <Link to='/' className='navigationBar__link'>
                 <img className='navigationBar__img' src={homeIcon} alt="Home"/>
             </Link>
-            <Link to='cart' className='navigationBar__link'>
+            <Link to='cart' className='navigationBar__link' state={{ from: true }}>
                 <img className='navigationBar__img' src={cartIcon} alt="Cart"/>
                 {selectedProducts.length !== 0 && <div className='navigationBar__itemsBubble'></div>}
             </Link>

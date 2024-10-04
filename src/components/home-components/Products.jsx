@@ -14,7 +14,7 @@ const Products = ({ products, loading, searchTerm }) => {
     return (
         <div className='products'>
             {products.map(product => (
-                <Link to='product' key={product.id} state={{id: product.id}}>
+                <Link to={`/${product.id}`} key={product.id} state={{ from: true }}>
                     <div className='products__product'>
                         <img className='products__product__image' src={product.imageUrl} alt={product.name} />
                         <h2 className='products__product__name'>{product.name}</h2>

@@ -1,10 +1,11 @@
 import React, {useState} from 'react'
-import { useLocation, Link } from 'react-router-dom'
+import { Link, useParams, useNavigate, useLocation } from 'react-router-dom'
 
 import starIcon from '../images/star-icon.png'
 import { FaAngleLeft, FaHeart, FaRegHeart } from "react-icons/fa6"
 
 import Quantity from '../components/Quantity'
+import PopupMesssage from '../components/PopupMessage'
 
 const Product = ({ products, getSelectedProducts }) => {
 
@@ -13,12 +14,25 @@ const Product = ({ products, getSelectedProducts }) => {
     const [selectedSize, setSelectedSize] = useState(null)
     const [selectedColor, setSelectedColor] = useState(null)
     const [itemCount, setItemCount] = useState(1)
+    const [isPopupVisible, setIsPopupVisible] = useState(false)
 
+    const navigate = useNavigate()
     const location = useLocation()
+    const { id } = useParams()
 
-    const productId = location.state.id
+    if (!products || products.length === 0) {
+        return (
+            <p>Loading...</p>
+        )
+    }
 
-    const currentProduct = products.find(product => product.id === productId)
+    const currentProduct = products.find(product => product.id === id)
+
+    if (!currentProduct) {
+        return (
+            <p>Product not found</p>
+        )
+    }
 
     const description = isOpen
         ? currentProduct.description
@@ -41,6 +55,9 @@ const Product = ({ products, getSelectedProducts }) => {
     }
 
     const handleAddToCart = () => {
+
+        showPopup()
+
         const selectedItem = {
             ...currentProduct,
             id: currentProduct.id + selectedSize + selectedColor,
@@ -53,11 +70,28 @@ const Product = ({ products, getSelectedProducts }) => {
         getSelectedProducts(selectedItem, itemCount)
     }
 
+    const showPopup = () => {
+        setIsPopupVisible(true)
+
+        setTimeout(() => {
+            setIsPopupVisible(false)
+        }, 2000)
+    }
+
+    const handleBackClick = () => {
+        if (location.state && location.state.from) {
+            navigate(-1)
+        } else {
+            navigate('/')
+        }
+    }
+
+
     return (
         <div className='product'>
             <div className='product__imgContainer'>
                 <img className='product__imgContainer__img' src={currentProduct.imageUrl} alt={currentProduct.name} />
-                <Link to={'..'} className='product__imgContainer__btn product__backBtn'><FaAngleLeft /></Link>
+                <button onClick={handleBackClick} className='product__imgContainer__btn product__backBtn'><FaAngleLeft /></button>
                 <button className='product__imgContainer__btn product__fovouriteBtn' onClick={handleFavourite}>
                     {isFavourite ? <FaHeart /> : <FaRegHeart />}
                 </button>
@@ -141,7 +175,10 @@ const Product = ({ products, getSelectedProducts }) => {
                 >
                 Add to Cart
                 </button>
-
+                <PopupMesssage
+                    message='Item was added to the cart!'
+                    isVisible={isPopupVisible}
+                />
             </div>
         </div>
     )
