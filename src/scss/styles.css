@@ -559,6 +559,77 @@ a:focus {
   background-color: #CAC9C9;
 }
 
+.popup {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 80%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 16px;
+  background-color: rgb(215, 255, 242);
+  text-align: center;
+  border-radius: 8px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+.popup__message {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.popup.fade-in {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup.fade-out {
+  opacity: 0;
+}
+
+.popup.middle {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 300px;
+  will-change: opacity, transform;
+}
+
+.order-heading {
+  font-size: 1.125rem;
+  margin-top: 32px;
+}
+
+.order-text {
+  font-size: 0.9375rem;
+  line-height: 1.8em;
+  font-weight: 400;
+  max-width: 300px;
+}
+
+.order-bottom-text {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.order-close-btn {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  align-self: flex-end;
+  border: none;
+  background: none;
+  font-size: 1.5625rem;
+  padding: 0;
+  color: #121111;
+}
+
 .welcome {
   display: flex;
   justify-content: space-between;
@@ -727,33 +798,4 @@ a:focus {
 .filter__option:focus, .filter__option:hover {
   border-color: #787676;
   outline-color: #787676;
-}
-
-.popup {
-  position: fixed;
-  bottom: 90px;
-  left: 50%;
-  transform: translate(-50%);
-  width: 80%;
-  padding: 4px 0;
-  background-color: rgb(215, 255, 242);
-  text-align: center;
-  border-radius: 8px;
-  z-index: 1000;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  pointer-events: none;
-}
-.popup__message {
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.popup.fade-in {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.popup-fade-out {
-  opacity: 0;
 }/*# sourceMappingURL=styles.css.map */
