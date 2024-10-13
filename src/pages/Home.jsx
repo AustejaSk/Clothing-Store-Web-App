@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
-import Welcome from '../components/home-components/Welcome'
-import SearchBar from '../components/home-components/SearchBar'
-import Filters from '../components/home-components/Filters'
-import Products from '../components/home-components/Products'
+import Welcome from '../components/home/Welcome'
+import SearchBar from '../components/home/SearchBar'
+import Filters from '../components/home/Filters'
+import Products from '../components/Products'
 
 
-function Home({ products, categories, loading }) {
+function Home({ products, categories, loading, favouriteProducts, setFavouriteProducts }) {
 
   const [filters, setFilters] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
@@ -47,11 +47,18 @@ function Home({ products, categories, loading }) {
         filters={filters}
         getFilters={getFilters}
       />
-      <Products
-        products={filteredProducts}
-        loading={loading}
-        searchTerm={searchTerm}
-      />
+      {!loading && filteredProducts.length === 0 ?
+          <div className='infoContainer'>
+            <p className='infoContainer__infoText'>Oops! No matches for</p>
+            <p className='infoContainer__searchTerm'>'{searchTerm}'</p>
+          </div>
+      :
+        <Products
+          products={filteredProducts}
+          favouriteProducts={favouriteProducts}
+          setFavouriteProducts={setFavouriteProducts}
+        />
+      }
     </div>
   )
 }

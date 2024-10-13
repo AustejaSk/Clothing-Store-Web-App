@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import { fetchProducts } from './firebase'
-import ScrollToTop from './components/home-components/ScrollToTop'
+import ScrollToTop from './components/home/ScrollToTop'
 
 import Navigation from './components/Navigation'
 import Home from './pages/Home'
 import Product from './pages/Product'
 import Cart from './pages/Cart'
-import Favourite from './pages/Favourite'
+import Favourites from './pages/Favourites'
 import Account from './pages/Accout'
 
 const App = () => {
@@ -16,6 +16,7 @@ const App = () => {
     const [products, setProducts] = useState([])
     const [categories, setCategories] = useState([])
     const [selectedProducts, setSelectedProducts] = useState([])
+    const [favouriteProducts, setFavouriteProducts] = useState([])
 
 
     useEffect(() => {
@@ -67,10 +68,10 @@ const App = () => {
             <ScrollToTop />
             <Navigation selectedProducts={selectedProducts} />
             <Routes>
-                <Route path='/' element={<Home products={products} categories={categories} loading={loading} />}/>
-                <Route path='/:id' element={<Product products={products} getSelectedProducts={getSelectedProducts} />} />
+                <Route path='/' element={<Home products={products} categories={categories} loading={loading} favouriteProducts={favouriteProducts} setFavouriteProducts={setFavouriteProducts} />} />
+                <Route path='/:id' element={<Product products={products} getSelectedProducts={getSelectedProducts} favouriteProducts={favouriteProducts} setFavouriteProducts={setFavouriteProducts} />} />
                 <Route path='cart' element={<Cart selectedProducts={selectedProducts} updateItemCount={updateItemCount} setSelectedProducts={setSelectedProducts} />} />
-                <Route path='favourite' element={<Favourite />} />
+                <Route path='favourites' element={<Favourites products={products} favouriteProducts={favouriteProducts} setFavouriteProducts={setFavouriteProducts} />} />
                 <Route path='account' element={<Account />} />
             </Routes>
         </Router>

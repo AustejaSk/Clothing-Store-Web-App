@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { FaXmark } from "react-icons/fa6"
 
 import PopupMessage from '../components/PopupMessage'
-import CartHeader from '../components/cart/CartHeader'
+import PageHeader from '../components/PageHeader'
 import CartProduct from '../components/cart/CartProduct'
 import CartPayment from '../components/cart/CartPayment'
+import EmptyPage from '../components/EmptyPage'
 
 
 const Cart = ({ selectedProducts, setSelectedProducts, updateItemCount }) => {
@@ -22,7 +22,7 @@ const Cart = ({ selectedProducts, setSelectedProducts, updateItemCount }) => {
 
     return (
         <div className='cart'>
-            <CartHeader />
+            <PageHeader name='Checkout' />
 
             {selectedProducts.filter(product => product.itemCount > 0).length ? (
                 <>  
@@ -45,13 +45,13 @@ const Cart = ({ selectedProducts, setSelectedProducts, updateItemCount }) => {
                         setIsPopupVisible={setIsPopupVisible}
                     />
                 </>
-            ) : (
-                <div className='cart__empty'>
-                    <h2 className='cart__empty__title'>Your cart is currently empty</h2>
-                    <h3 className='cart__empty__subtitle'>Explore our products and add your favorites!</h3>
-                    <Link to='/' className='cart__empty__btn'>Explore Products</Link>
-                </div>
-            )}
+            ) : 
+                <EmptyPage
+                    title='Your cart is currently empty'
+                    subtitle='Explore our products and add your favorites!'
+                    btnText='Explore Products'
+                />
+            }
 
             <PopupMessage isVisible={isPopupVisible} placement='middle'>
                 <button className='order-close-btn' onClick={handlePopupClose}><FaXmark /></button>

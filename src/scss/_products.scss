@@ -4,65 +4,6 @@
     gap: 24px 17px;
     margin: 24px 0 100px 0;
 
-    &__product {
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-
-        &__image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 16px;
-        }
-
-        &__name {
-            margin: 8px 0 0;
-            font-size: to-rem(14);
-            font-weight: 600;
-            color: $dark-black;
-        }
-
-        &__category {
-            margin: 4px 0 0;
-            font-size: to-rem(10);
-            font-weight: 400;
-            color: $dark-grey;
-        }
-
-        &__bottom {
-            display: flex;
-            justify-content: space-between;
-            margin: 12px 0 0;
-
-            &__price {
-                margin: 0;
-                font-size: to-rem(14);
-                font-weight: 600;
-                color: $light-black;
-            }
-
-            &__rating {
-                margin: 0;
-                display: flex;
-                align-items: center;
-                gap: 4px;
-                font-size: to-rem(12);
-                font-weight: 400;
-                color: $light-black;
-    
-                > span {
-                    display: flex;
-                    align-items: center;
-    
-                    > img {
-                        width: 18px;
-                        height: 18px;
-                    }
-                }
-            }
-        }
-    }
-
     @include respond-to(smallMobile) {
         grid-template-columns: 1fr;
     }
@@ -70,38 +11,111 @@
     @include respond-to(tablet) {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     @include respond-to(desktop) {
         grid-template-columns: repeat(4, 1fr);
         gap: 36px 25.5px;
         margin-top: 48px;
+    }
+}
 
-        &__product {
+.productCard {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
 
-            &__name {
-                margin: 16px 0 0;
+    &__imgContainer {
+        position: relative;
+    }
+
+    &__image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 16px;
+    }
+
+    &__btn {
+        @include backBtn;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        box-shadow: 0 4px 12px #29252610;
+        font-size: 1.2rem;
+        height: 35px;
+        width: 35px;
+    }
+
+    &__name {
+        margin: 8px 0 0;
+        font-size: to-rem(14);
+        font-weight: 600;
+        color: $dark-black;
+    }
+
+    &__category {
+        margin: 4px 0 0;
+        font-size: to-rem(10);
+        font-weight: 400;
+        color: $dark-grey;
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        margin: 12px 0 0;
+
+        &__price {
+            margin: 0;
+            font-size: to-rem(14);
+            font-weight: 600;
+            color: $light-black;
+        }
+
+        &__rating {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: to-rem(12);
+            font-weight: 400;
+            color: $light-black;
+
+            > span {
+                display: flex;
+                align-items: center;
+
+                > img {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+        }
+    }
+
+    @include respond-to(desktop) {
+        &__name {
+            margin: 16px 0 0;
+            font-size: to-rem(18);
+        }
+
+        &__category {
+            margin: 8px 0 0;
+            font-size: to-rem(14);
+        }
+
+        &__bottom {
+            margin: 18px 0 0;
+
+            &__price {
                 font-size: to-rem(18);
             }
 
-            &__category {
-                margin: 8px 0 0;
-                font-size: to-rem(14);
-            }
+            &__rating {
+                font-size: to-rem(16);
 
-            &__bottom {
-                margin: 18px 0 0;
-
-                &__price {
-                    font-size: to-rem(18);
-                }
-
-                &__rating {
-                    font-size: to-rem(16);
-
-                    > span > img {
-                        width: 20px;
-                        height: 20px;
-                    }
+                > span > img {
+                    width: 20px;
+                    height: 20px;
                 }
             }
         }

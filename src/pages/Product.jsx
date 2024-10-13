@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Link, useParams, useNavigate, useLocation } from 'react-router-dom'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 
 import starIcon from '../images/star-icon.png'
 import { FaAngleLeft, FaHeart, FaRegHeart } from "react-icons/fa6"
@@ -7,10 +7,9 @@ import { FaAngleLeft, FaHeart, FaRegHeart } from "react-icons/fa6"
 import Quantity from '../components/Quantity'
 import PopupMesssage from '../components/PopupMessage'
 
-const Product = ({ products, getSelectedProducts }) => {
+const Product = ({ products, getSelectedProducts, favouriteProducts, setFavouriteProducts }) => {
 
     const [isOpen, setIsOpen] = useState(false)
-    const [isFavourite, setIsFavourite] = useState(false)
     const [selectedSize, setSelectedSize] = useState(null)
     const [selectedColor, setSelectedColor] = useState(null)
     const [itemCount, setItemCount] = useState(1)
@@ -42,8 +41,12 @@ const Product = ({ products, getSelectedProducts }) => {
         setIsOpen(isOpen ? false : true)
     }
 
-    const handleFavourite = () => {
-        setIsFavourite(isFavourite ? false : true)
+    const handleFavourite = (currentProduct) => {
+        if (favouriteProducts?.some(favProduct => favProduct.id === currentProduct.id)) {
+            setFavouriteProducts(prevFav => prevFav.filter(product => product.id !== currentProduct.id))
+        } else {
+            setFavouriteProducts(prevFav => [...prevFav, currentProduct])
+        }
     }
 
     const handleSizeChoice = (size) => {
@@ -92,8 +95,8 @@ const Product = ({ products, getSelectedProducts }) => {
             <div className='product__imgContainer'>
                 <img className='product__imgContainer__img' src={currentProduct.imageUrl} alt={currentProduct.name} />
                 <button onClick={handleBackClick} className='product__imgContainer__btn product__backBtn'><FaAngleLeft /></button>
-                <button className='product__imgContainer__btn product__fovouriteBtn' onClick={handleFavourite}>
-                    {isFavourite ? <FaHeart /> : <FaRegHeart />}
+                <button className='product__imgContainer__btn product__fovouriteBtn' onClick={() => handleFavourite(currentProduct)}>
+                    {favouriteProducts?.some(favProduct => favProduct.id === currentProduct.id) ? <FaHeart /> : <FaRegHeart />}
                 </button>
             </div>
 
