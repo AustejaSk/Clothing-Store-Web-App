@@ -1,6 +1,6 @@
 @import 'variables';
-@import 'globals';
 @import 'mixins';
+@import 'globals';
 @import 'navigation';
 @import 'products';
 @import 'product';
@@ -173,6 +173,7 @@
         font-size: to-rem(12);
         font-weight: 500;
         color: $light-black;
+        cursor: pointer;
 
         &__icon {
             width: 16px;
@@ -224,6 +225,23 @@
         font-weight: 600;
         color: $dark-black;
     }
+
+    @include respond-to(tablet) {
+        padding: 16px 0 24px 0;
+        
+        &__title {
+            font-size: to-rem(20);
+        }
+    }
+
+    @include respond-to(desktop) {
+        padding: 0 0 24px 0;
+        border-bottom: 1px solid $light-grey;
+        
+        &__title {
+            font-size: to-rem(20);
+        }
+    }
 }
 
 .emptyPage {
@@ -257,5 +275,31 @@
     &__btn {
         @include button;
         margin: 24px 0 0;
+    }
+
+    @include respond-to(tablet) {
+        &__btn {
+            min-width: 200px;
+            width: 40%;
+        }
+    }
+
+    @include respond-to(desktop) {
+
+        &__title {
+            font-size: to-rem(28);
+        }
+
+        &__subtitle {
+            font-size: to-rem(18);
+            max-width: 800px;
+            margin: 42px 0 0;
+        }
+
+        &__btn {
+            min-width: 300px;
+            width: 20%;
+            margin: 42px 0 0;
+        }
     }
 }

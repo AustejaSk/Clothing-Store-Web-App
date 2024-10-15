@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import filterIcon from '../../images/filter-icon.png'
 
 const SearchBar = ({ inputValue, setInputValue, setSearchTerm }) => {
 
@@ -24,7 +23,6 @@ const SearchBar = ({ inputValue, setInputValue, setSearchTerm }) => {
                     value={inputValue}
                     onChange={handleChange}
                 />
-                <button className='search__input__filterBtn'><img className='search__input__filterBtn__img' src={filterIcon} /></button>
             </div>
         </div>
     )

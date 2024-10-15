@@ -27,7 +27,6 @@
         right: 16px;
     }
 
-
     &__details {
         margin-top: 24px;
     }
@@ -95,6 +94,7 @@
             place-items: center;
             color: $dark-black;
             padding: 0;
+            cursor: pointer;
 
             &:hover {
                 border-color: $dark-grey;
@@ -151,6 +151,7 @@
             place-items: center;
             color: $dark-black;
             padding: 0;
+            cursor: pointer;
 
             &:hover {
                 border-color: $dark-grey;
@@ -164,6 +165,11 @@
             border-radius: 50%;
             width: 36px;
             height: 36px;
+            cursor: pointer;
+
+            &:hover {
+                border: 2px solid #FFD33C;
+            }
          }
     }
 
@@ -175,5 +181,71 @@
     &__cartBtn {
         @include button;
         margin-top: 36px;
+    }
+
+    @include respond-to(desktop) {
+        min-height: fit-content;
+        display: flex;
+        gap: 60px;
+        margin: 0;
+
+        &__imgContainer {
+            width: 40%;
+            height: fit-content;
+        }
+
+        &__details {
+            margin: 0;
+            height: fit-content;
+            width: 70%;
+            align-self: center;
+        }
+
+        &__name {
+            font-size: to-rem(28)
+        }
+
+        &__rating {
+            margin-top: 8px;
+    
+            &__value {
+                font-size: to-rem(14);
+            }
+        }
+
+        &__quantity {
+            display: flex;
+            align-items: center;
+    
+            &__value {
+                font-size: to-rem(18);
+                width: 38px;
+                height: 38px;
+            }
+    
+            &__btn {
+                font-size: to-rem(16);
+                width: 38px;
+                height: 38px;
+            }
+        }
+
+        &__description__text {
+            font-size: to-rem(16);
+        }
+
+        & hr {
+            margin: 32px 0;
+        }
+
+        &__customization {
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        &__heading {
+            margin: 0 0 24px;
+            font-size: to-rem(16);
+        }
     }
 }

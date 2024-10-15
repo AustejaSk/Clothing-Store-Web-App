@@ -11,6 +11,11 @@
         margin: 24px 0;
         border: 1px solid #F6F6F6;
     }
+
+    @include respond-to(desktop) {
+        max-width: 800px;
+        margin: 60px auto 0;
+    }
 }
 
 
@@ -95,6 +100,47 @@
             padding: 0;
         }
     }
+
+    @include respond-to(desktop) {
+        gap: 30px;
+
+        &__img {
+            width: 120px;
+        }
+
+        &__details {
+    
+            &__name {
+                font-size: to-rem(18);
+            }
+    
+            &__category {
+                margin: 8px 0 0;
+                font-size: to-rem(14);
+            }
+    
+            &__styles {
+                margin: 16px 0 0;
+                gap: 8px;
+    
+                &__color {
+                    width: 28px;
+                    height: 28px;
+                }
+    
+                &__size {
+                    font-size: to-rem(13);
+                    width: 28px;
+                    height: 28px;
+                }
+            }
+
+            &__price {
+                margin: 16px 0 0;
+                font-size: to-rem(16);
+            }
+        }
+    }
 }
 
 .cart__payment {
@@ -166,6 +212,44 @@
     &__btn {
         @include button;
         margin-top: 44px;
+    }
+
+    @include respond-to(desktop) {
+        max-width: 800px;
+        margin: 48px auto 0;
+
+        &__heading {
+            font-size: to-rem(18);
+        }
+
+        &__card {
+            margin-top: 24px;
+    
+            &__icon {
+                width: 45px;
+                height: auto;
+            }
+    
+            &__numbers {
+                margin: 0 auto 0 24px;
+                font-size: to-rem(16);
+            }
+        }
+
+        &__priceDetails {
+            margin-top: 32px;
+            gap: 24px;
+    
+            &__name {
+                font-size: to-rem(16);
+            }
+        }
+
+        &__btn {
+            width: 100%;
+            padding-top: 24px;
+            padding-bottom: 24px;
+        }
     }
 }
 

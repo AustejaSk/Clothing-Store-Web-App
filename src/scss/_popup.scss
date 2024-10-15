@@ -23,8 +23,13 @@
         font-size: to-rem(14);
         font-weight: 500;
     }
-}
 
+    @include respond-to(desktop) {
+        &__message {
+            font-size: to-rem(16);
+        }
+    }
+}
 
 .popup.fade-in {
     opacity: 1;
@@ -69,4 +74,10 @@
     font-size: to-rem(25);
     padding: 0;
     color: $dark-black;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.08);
+    }
 }

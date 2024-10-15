@@ -13,9 +13,10 @@
     }
 
     @include respond-to(desktop) {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         gap: 36px 25.5px;
         margin-top: 48px;
+        margin-bottom: 100px;
     }
 }
 

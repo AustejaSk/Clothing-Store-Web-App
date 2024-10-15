@@ -4,6 +4,7 @@
 
 html {
     font-size: 100%;
+    overflow-y: scroll;
 }
 
 body {
@@ -12,6 +13,10 @@ body {
     font-family: "Encode Sans", sans-serif;
     display: flex;
     flex-direction: column;
+
+    @include respond-to(desktop) {
+        margin: 24px 40px;
+    }
 }
 
 a {
