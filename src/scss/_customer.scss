@@ -1,0 +1,89 @@
+.account {
+    display: flex;
+    flex-direction: column;
+}
+
+.customerInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 24px;
+
+    &__img {
+        width: 60px;
+        height: auto;
+    }
+
+    &__name {
+        margin: 0;
+        font-size: to-rem(20);
+    }
+
+    @include respond-to(desktop) {
+        margin-top: 48px;
+    }
+}
+
+.accountMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+    padding: 16px 0 0;
+
+    &__option {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        border: 1px solid $light-grey;
+        color: $dark-black;
+        font-weight: 500;
+        border-radius: 12px;
+        padding: 16px;
+        cursor: pointer;
+
+        &:hover {
+            border-color: $dark-grey;
+        }
+
+        &:focus {
+            border-color: $dark-grey;
+        }
+    }
+
+    &__optionIcon {
+        width: 25px;
+        height: auto;
+        filter: invert(1);
+    }
+
+    @include respond-to(tablet) {
+        align-self: center;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    @include respond-to(desktop) {
+        align-self: center;
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+.signout-btn {
+    margin-top: 16px;
+    @include button;
+
+    @include respond-to(tablet) {
+        max-width: 500px;
+        align-self: center;
+    }
+
+    @include respond-to(desktop) {
+        align-self: center;
+        width: 100%;
+        max-width: 300px;
+    }
+}

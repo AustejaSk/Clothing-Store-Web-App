@@ -127,7 +127,7 @@ a:focus {
   height: 35px;
   width: 35px;
 }
-.productCard__btn:hover {
+.productCard__btn:hover, .productCard__btn:focus {
   transform: scale(1.08);
 }
 .productCard__name {
@@ -223,7 +223,7 @@ a:focus {
   top: 16px;
   box-shadow: 0 4px 12px rgba(41, 37, 38, 0.062745098);
 }
-.product__imgContainer__btn:hover {
+.product__imgContainer__btn:hover, .product__imgContainer__btn:focus {
   transform: scale(1.08);
 }
 .product__backBtn {
@@ -370,7 +370,7 @@ a:focus {
 .product__cartBtn.disabled {
   background-color: #CAC9C9;
 }
-.product__cartBtn.disabled:hover::after {
+.product__cartBtn.disabled:hover::after, .product__cartBtn.disabled:focus::after {
   opacity: 0;
 }
 .product__cartBtn::after {
@@ -387,7 +387,7 @@ a:focus {
   z-index: 1;
   opacity: 0;
 }
-.product__cartBtn:hover::after {
+.product__cartBtn:hover::after, .product__cartBtn:focus::after {
   opacity: 1;
 }
 @media (min-width: 900px) {
@@ -656,7 +656,7 @@ a:focus {
 .cart__payment__btn.disabled {
   background-color: #CAC9C9;
 }
-.cart__payment__btn.disabled:hover::after {
+.cart__payment__btn.disabled:hover::after, .cart__payment__btn.disabled:focus::after {
   opacity: 0;
 }
 .cart__payment__btn::after {
@@ -673,7 +673,7 @@ a:focus {
   z-index: 1;
   opacity: 0;
 }
-.cart__payment__btn:hover::after {
+.cart__payment__btn:hover::after, .cart__payment__btn:focus::after {
   opacity: 1;
 }
 @media (min-width: 900px) {
@@ -812,6 +812,135 @@ a:focus {
 }
 .order-close-btn:hover {
   transform: scale(1.08);
+}
+
+.account {
+  display: flex;
+  flex-direction: column;
+}
+
+.customerInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+.customerInfo__img {
+  width: 60px;
+  height: auto;
+}
+.customerInfo__name {
+  margin: 0;
+  font-size: 1.25rem;
+}
+@media (min-width: 900px) {
+  .customerInfo {
+    margin-top: 48px;
+  }
+}
+
+.accountMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+  padding: 16px 0 0;
+}
+.accountMenu__option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid #CAC9C9;
+  color: #121111;
+  font-weight: 500;
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+}
+.accountMenu__option:hover {
+  border-color: #787676;
+}
+.accountMenu__option:focus {
+  border-color: #787676;
+}
+.accountMenu__optionIcon {
+  width: 25px;
+  height: auto;
+  filter: invert(1);
+}
+@media (min-width: 480px) and (max-width: 900px) {
+  .accountMenu {
+    align-self: center;
+    width: 100%;
+    max-width: 500px;
+  }
+}
+@media (min-width: 900px) {
+  .accountMenu {
+    align-self: center;
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+.signout-btn {
+  margin-top: 16px;
+  border: none;
+  width: 100%;
+  padding: 20px 0;
+  border-radius: 45px;
+  background-color: #292526;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  position: relative;
+}
+.signout-btn.disabled {
+  background-color: #CAC9C9;
+}
+.signout-btn.disabled:hover::after, .signout-btn.disabled:focus::after {
+  opacity: 0;
+}
+.signout-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  outline: 2px solid white;
+  outline-offset: -5px;
+  border-radius: 45px;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  opacity: 0;
+}
+.signout-btn:hover::after, .signout-btn:focus::after {
+  opacity: 1;
+}
+@media (min-width: 900px) {
+  .signout-btn {
+    width: -moz-fit-content;
+    width: fit-content;
+    font-size: 1rem;
+    padding: 20px 80px;
+  }
+}
+@media (min-width: 480px) and (max-width: 900px) {
+  .signout-btn {
+    max-width: 500px;
+    align-self: center;
+  }
+}
+@media (min-width: 900px) {
+  .signout-btn {
+    align-self: center;
+    width: 100%;
+    max-width: 300px;
+  }
 }
 
 .welcome {
@@ -1007,7 +1136,7 @@ a:focus {
   border: 1px solid #CAC9C9;
   margin-right: auto;
 }
-.page__header__backBtn:hover {
+.page__header__backBtn:hover, .page__header__backBtn:focus {
   transform: scale(1.08);
 }
 .page__header__title {
@@ -1079,7 +1208,7 @@ a:focus {
 .emptyPage__btn.disabled {
   background-color: #CAC9C9;
 }
-.emptyPage__btn.disabled:hover::after {
+.emptyPage__btn.disabled:hover::after, .emptyPage__btn.disabled:focus::after {
   opacity: 0;
 }
 .emptyPage__btn::after {
@@ -1096,7 +1225,7 @@ a:focus {
   z-index: 1;
   opacity: 0;
 }
-.emptyPage__btn:hover::after {
+.emptyPage__btn:hover::after, .emptyPage__btn:focus::after {
   opacity: 1;
 }
 @media (min-width: 900px) {
